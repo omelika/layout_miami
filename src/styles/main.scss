@@ -1,7 +1,182 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@mixin onTablet {
+  @media (min-width: 744px) {
+    @content;
+  }
+}
 
-body {
-  background: $c-gray;
+@mixin onDesktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+.page {
+  font-family: 'Cinzel', serif;
+
+  &__body {
+    margin: 0;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1020px;
+  padding: 0 20px;
+
+  @include onTablet {
+    padding: 0 72px;
+  }
+
+  @include onDesktop {
+    padding: 0 120px;
+  }
+}
+
+.header {
+  background-size: cover;
+  background-position: center;
+  background-image: url(../images/header.jpeg);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 24px 0 50px;
+
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // gap: 30px;
+  }
+
+  &__menu-opener {
+    display: block;
+    width: 18px;
+    height: 12px;
+    margin-left: 30px;
+
+    @include onTablet {
+      width: 24px;
+      height: 16px;
+      margin-left: 64px;
+    }
+
+    @include onDesktop {
+      width: 24px;
+      height: 16px;
+      margin-left: 64px;
+    }
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/menu.svg);
+
+    &:hover {
+      background-image: url(../images/menu_hover.svg);
+    }
+  }
+
+  &__call {
+    width: 18px;
+    height: 18px;
+    margin-left: 20px;
+
+    @include onTablet {
+      width: 24px;
+      height: 24px;
+    }
+
+    @include onDesktop {
+      width: 24px;
+      height: 24px;
+    }
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/phone.svg);
+  }
+
+  @include onDesktop {
+    &__phone-container {
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 27px;
+      text-transform: uppercase;
+      color: #fff;
+
+      // transform: translate(-100%, -50%);
+    }
+
+    &--number {
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 100%;
+
+    @include onTablet {
+      font-size: 64px;
+      line-height: 64px;
+    }
+
+    @include onDesktop {
+      font-size: 80px;
+      line-height: 80px;
+    }
+
+    align-items: center;
+    text-align: center;
+    letter-spacing: -1.5px;
+    color: #fff;
+  }
+
+  .logo {
+    display: block;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 80%;
+    letter-spacing: -1.5px;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+
+    @include onTablet {
+      font-size: 40px;
+    }
+
+    @include onDesktop {
+      font-size: 40px;
+    }
+
+    &__container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
